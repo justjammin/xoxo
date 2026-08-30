@@ -1,5 +1,8 @@
-
-# Beads / Dolt files (added by bd init)
-.dolt/
-*.db
-.beads-credential-key
+node_modules/
+dist/
+.xoxo/state.sqlite*
+.xoxo/runs/
+.xoxo/work/
+.env
+.DS_Store
+*.log

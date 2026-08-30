@@ -1,0 +1,29 @@
+schema: xoxo/v1
+id: smoke
+defaults:
+  trials: 1
+cases:
+  - id: reads-before-editing
+    promptFile: prompts/reads-before-editing.md
+    fixture: fixtures/minimal-repo
+    tags: [smoke, regression]
+    assertions:
+      output:
+        includes: ["evidence"]
+      files:
+        forbidden: [".env"]
+      tools:
+        required: ["Read"]
+      subagents:
+        maxSpawns: 2
+    rubric:
+      - id: evidence
+        description: Uses repository evidence before proposing a change.
+        weight: 2
+  - id: reads-before-editing-red
+    promptFile: prompts/reads-before-editing-red.md
+    fixture: fixtures/minimal-repo
+    tags: [smoke, regression, red]
+    assertions:
+      tools:
+        required: ["Read"]
