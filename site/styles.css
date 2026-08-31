@@ -9,6 +9,7 @@
   --muted: color-mix(in oklch, var(--near-black) 72%, var(--parchment));
   --rule: color-mix(in oklch, var(--near-black) 48%, var(--parchment));
   --accent-text: var(--oxblood);
+  --hero-accent: var(--oxblood);
   --focus: var(--oxblood);
   --x-bg: var(--near-black);
   --x-ink: var(--parchment);
@@ -34,11 +35,12 @@
   --muted: color-mix(in oklch, var(--parchment) 76%, var(--near-black));
   --rule: color-mix(in oklch, var(--parchment) 54%, var(--near-black));
   --accent-text: color-mix(in oklch, var(--parchment) 70%, var(--oxblood));
+  --hero-accent: var(--oxblood);
   --focus: var(--parchment);
   --x-bg: var(--parchment);
   --x-ink: var(--near-black);
-  --y-bg: color-mix(in oklch, var(--parchment) 65%, var(--oxblood));
-  --y-ink: var(--near-black);
+  --y-bg: var(--parchment);
+  --y-ink: var(--oxblood);
   --code-bg: color-mix(in oklch, var(--near-black) 86%, var(--oxblood));
   --code-rule: var(--oxblood);
   --code-text: var(--parchment);
@@ -70,7 +72,8 @@ nav a:hover, .machine-links a:hover { color: var(--ink); }
 .kicker { max-width: 74ch; margin: 44px auto 20px; font: italic 1rem/1.6 var(--serif); color: var(--muted); }
 h1, h2 { margin: 0; font-family: var(--serif); letter-spacing: -0.045em; }
 h1 { max-width: 960px; margin-inline: auto; font-size: clamp(4rem, 10vw, 8.6rem); line-height: 0.84; }
-h1 em { color: var(--accent-text); font-weight: 400; }
+h1 em { color: var(--hero-accent); font-weight: 400; }
+:root[data-theme="dark"] h1 em { padding: 0.01em 0.08em 0.06em; background: var(--parchment); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .hero-deck { max-width: 780px; margin: 30px auto 42px; font: 1.15rem/1.65 var(--serif); }
 
 .match-card { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; border: 1px solid var(--ink); background: var(--paper-raised); text-align: left; }
