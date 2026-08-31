@@ -60,7 +60,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px soli
 
 .site-header { min-height: 88px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding: 18px max(20px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--ink); background: color-mix(in oklch, var(--paper-raised) 92%, transparent); }
 .wordmark { font: 700 1.55rem/1 var(--serif); letter-spacing: -0.08em; text-decoration: none; }
-.wordmark span { color: var(--accent-text); }
+.wordmark span { display: inline-block; padding-inline: 0.06em; color: var(--hero-accent); background: var(--parchment); line-height: 0.9; }
 nav { display: flex; justify-content: center; gap: clamp(18px, 4vw, 48px); }
 nav a, .machine-links a { color: var(--muted); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
 nav a:hover, .machine-links a:hover { color: var(--ink); }
