@@ -48,4 +48,15 @@ describe("Cloudflare site and AI discovery", () => {
     expect(faq?.mainEntity?.length).toBe(5);
     for (const item of faq?.mainEntity ?? []) expect(html).toContain(item.name);
   });
+
+  test("uses the bright off-white parchment across landing themes", async () => {
+    const [html, styles, script] = await Promise.all([
+      readFile(new URL("../site/index.html", import.meta.url), "utf8"),
+      readFile(new URL("../site/styles.css", import.meta.url), "utf8"),
+      readFile(new URL("../site/site.js", import.meta.url), "utf8"),
+    ]);
+    expect(styles).toContain("--parchment: oklch(0.96 0.018 72.9)");
+    expect(html).toContain('<meta name="theme-color" content="#F9F0E5" />');
+    expect(script).toContain('dark ? "#0D0C00" : "#F9F0E5"');
+  });
 });

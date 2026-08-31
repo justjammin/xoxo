@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
   --oxblood: oklch(0.2356 0.0934 23.82);
-  --parchment: oklch(0.88 0.043 72.9);
+  --parchment: oklch(0.96 0.018 72.9);
   --near-black: oklch(0.1507 0.0323 106.7);
   --paper: var(--parchment);
   --paper-raised: color-mix(in oklch, var(--parchment) 94%, var(--near-black));
