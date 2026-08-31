@@ -105,6 +105,7 @@ h1 em { color: var(--hero-accent); font-weight: 400; }
 .section-heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr); gap: 48px; align-items: end; margin-bottom: 36px; }
 .section-heading p { margin: 0; color: var(--muted); line-height: 1.65; }
 .section-heading .eyebrow { margin-bottom: 8px; }
+:root[data-theme="dark"] :is(.section-label, .eyebrow) { align-self: start; width: fit-content; padding: 0.32em 0.5em; color: var(--hero-accent); background: var(--parchment); line-height: 1; }
 .code-window { border: 1px solid var(--ink); background: var(--code-bg); color: var(--code-text); }
 .code-bar { min-height: 48px; display: flex; justify-content: space-between; align-items: center; padding: 0 16px; border-bottom: 1px solid var(--code-rule); color: var(--code-muted); font-size: 0.72rem; text-transform: uppercase; }
 .copy-button { padding: 7px 12px; border: 1px solid var(--code-muted); background: transparent; color: var(--code-text); cursor: pointer; }
