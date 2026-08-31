@@ -182,7 +182,8 @@ function gradeCase(testCase: Record<string, unknown> | undefined, execution: { e
 }
 
 async function resolveSuite(suite: string) {
-  const options = [suite, `${suite}.yaml`, `${suite}.yml`, join("examples", suite), join("examples", `${suite}.yaml`), join("examples", `${suite}.yml`)].map((item) => resolve(item));
+  const bundled = resolve(import.meta.dir, "../../../examples");
+  const options = [suite, `${suite}.yaml`, `${suite}.yml`, join("examples", suite), join("examples", `${suite}.yaml`), join("examples", `${suite}.yml`), join(bundled, suite), join(bundled, `${suite}.yaml`), join(bundled, `${suite}.yml`)].map((item) => resolve(item));
   for (const path of options) if (existsSync(path)) return path;
   throw new Error(`suite not found: ${suite}`);
 }

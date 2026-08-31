@@ -2,6 +2,8 @@ Gossip Girl here, your one and only source into the scandalous lives of Manhatta
 
 # XOXO
 
+[GitHub](https://github.com/justjammin/xoxo) · [npm](https://www.npmjs.com/package/xoxo-eval)
+
 Spotted: XOXO, the ultimate playground where any two models running through headless Claude Code or Codex go head-to-head. Compare two Claude Code candidates, two Codex candidates, or one of each. We put every little candidate through a fresh, isolated fixture, keep receipts with normalized events and redacted secrets, run ruthless assertions, and—when things get really juicy—call in a blind third model to judge their every move. Because around here, darling, reputation is everything.
 
 ## Quick start
@@ -9,16 +11,16 @@ Spotted: XOXO, the ultimate playground where any two models running through head
 You can't sit with us unless you have Bun 1.2+ and authenticated `claude` and `codex` CLIs sitting pretty on your `PATH`.
 
 ```sh
-bun install
-bun run xoxo init
-bun run xoxo doctor
-bun run xoxo compare examples/smoke.yaml \
+bun add --global xoxo-eval
+xoxo init
+xoxo doctor
+xoxo compare smoke \
   --x claude:claude-sonnet-4-6 --x-effort high \
   --y codex:gpt-5.6-sol --y-effort high
-bun run xoxo dev
+xoxo serve
 ```
 
-Sneak a peek at [http://127.0.0.1:5173](http://127.0.0.1:5173) after running `dev` to dish on all the latest runs. The server stays on loopback by default—we do love our privacy. Want to make a real scene? Run `bun run build && bun run xoxo serve --port 4242` for the full production show.
+Sneak a peek at [http://127.0.0.1:4242](http://127.0.0.1:4242) after running `xoxo serve` to dish on all the latest runs. The server stays on loopback by default—we do love our privacy. Building from [the source dossier](https://github.com/justjammin/xoxo)? Run `bun install`, then use `bun run xoxo` in place of `xoxo`; `bun run xoxo dev` starts the Vite workspace at [http://127.0.0.1:5173](http://127.0.0.1:5173).
 
 ## CLI
 

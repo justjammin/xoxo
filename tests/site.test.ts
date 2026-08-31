@@ -39,9 +39,11 @@ describe("Cloudflare site and AI discovery", () => {
     expect(html).toContain("Claude Code or Codex");
     expect(html).not.toContain("Claude Code vs Codex");
     expect(html).not.toContain("Claude Code versus Codex");
+    expect(html).toContain('href="https://github.com/justjammin/xoxo"');
     const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     expect(match).not.toBeNull();
     const schema = JSON.parse(match![1]!) as { "@graph": Array<{ "@type": string; mainEntity?: Array<{ name: string }> }> };
+    expect(JSON.stringify(schema)).toContain('"codeRepository":"https://github.com/justjammin/xoxo"');
     const faq = schema["@graph"].find((item) => item["@type"] === "FAQPage");
     expect(faq?.mainEntity?.length).toBe(5);
     for (const item of faq?.mainEntity ?? []) expect(html).toContain(item.name);

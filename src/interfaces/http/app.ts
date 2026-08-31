@@ -111,15 +111,16 @@ function eventStream(runId: string, history: EventHistory, facade: HarnessFacade
 
 export function createHttpApp(facade: HarnessFacade, options: HttpOptions = {}) {
   const history = options.eventHistory ?? new EventHistory();
+  const webRoot = resolve(import.meta.dir, "../../../dist/web");
   const app = new Elysia({ name: "xoxo" })
     .get("/healthz", () => ({ ok: true, service: "xoxo" }))
     .get("/", async () => {
-      const index = Bun.file(join(process.cwd(), "dist", "web", "index.html"));
+      const index = Bun.file(join(webRoot, "index.html"));
       return await index.exists() ? new Response(index, { headers: { "content-type": "text/html; charset=utf-8" } }) : { service: "xoxo", ui: "run `xoxo dev` for the Vite workspace" };
     })
     .get("/assets/*", async ({ params, set }) => {
       const name = String((params as Record<string, string>)["*"] ?? "");
-      const root = resolve(process.cwd(), "dist", "web", "assets");
+      const root = resolve(webRoot, "assets");
       const path = resolve(root, name);
       if (!path.startsWith(`${root}/`)) { set.status = 404; return { error: "asset not found" }; }
       const file = Bun.file(path);
