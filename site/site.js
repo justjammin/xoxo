@@ -11,7 +11,7 @@ function syncThemeControl() {
   toggle?.setAttribute("aria-pressed", String(dark));
   toggle?.setAttribute("aria-label", `Switch to ${dark ? "light" : "dark"} theme`);
   if (label) label.textContent = dark ? "Day issue" : "Night issue";
-  themeMeta?.setAttribute("content", dark ? "#0D0C00" : "#D9B991");
+  themeMeta?.setAttribute("content", dark ? "#0D0C00" : "#E9D4B9");
 }
 
 toggle?.addEventListener("click", () => {
