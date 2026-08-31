@@ -14,5 +14,5 @@
     "types": ["bun-types", "vite/client"],
     "skipLibCheck": true
   },
-  "include": ["src", "web", "tests", "vite.config.ts"]
+  "include": ["src", "web", "worker", "tests", "vite.config.ts"]
 }

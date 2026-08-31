@@ -13,7 +13,10 @@
     "test": "bun test",
     "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "check": "bun test && tsc --noEmit && vite build"
+    "check": "bun test && tsc --noEmit && vite build",
+    "site:dev": "WRANGLER_WRITE_LOGS=false wrangler dev --config wrangler.jsonc",
+    "site:build": "WRANGLER_WRITE_LOGS=false wrangler deploy --dry-run --config wrangler.jsonc --outdir dist/site-worker",
+    "site:deploy": "wrangler deploy --config wrangler.jsonc"
   },
   "dependencies": {
     "@elysiajs/openapi": "^1.4.0",
@@ -37,6 +40,7 @@
     "@types/three": "^0.181.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "^5.9.0",
-    "vite": "^7.1.0"
+    "vite": "^7.1.0",
+    "wrangler": "^4.33.1"
   }
 }

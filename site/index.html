@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XOXO — Claude Code vs Codex Eval Harness</title>
+    <meta name="description" content="XOXO is a local evaluation harness where headless Claude Code and Codex compete in isolated fixtures with deterministic assertions, redacted evidence, and optional blind judging." />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#f3ecdf" />
+    <link rel="canonical" href="https://xoxo.invalid/" />
+    <link rel="alternate" type="text/markdown" href="https://xoxo.invalid/llms.txt" title="XOXO AI-readable overview" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="XOXO" />
+    <meta property="og:title" content="XOXO — Set the record straight" />
+    <meta property="og:description" content="Claude Code and Codex go head-to-head. Fresh fixtures, ruthless assertions, redacted receipts, and a blind judge when things get juicy." />
+    <meta property="og:url" content="https://xoxo.invalid/" />
+    <meta property="og:image" content="https://xoxo.invalid/og.png" />
+    <meta property="og:image:alt" content="XOXO evidence desk: Claude Code versus Codex" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="XOXO — Set the record straight" />
+    <meta name="twitter:description" content="The scandalous head-to-head eval harness for Claude Code and Codex." />
+    <meta name="twitter:image" content="https://xoxo.invalid/og.png" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://xoxo.invalid/#website",
+            "url": "https://xoxo.invalid/",
+            "name": "XOXO",
+            "description": "A local evaluation harness for comparing headless Claude Code and Codex.",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://xoxo.invalid/#software",
+            "name": "XOXO",
+            "url": "https://xoxo.invalid/",
+            "applicationCategory": "DeveloperApplication",
+            "applicationSubCategory": "AI evaluation harness",
+            "operatingSystem": "macOS, Linux",
+            "softwareRequirements": "Bun 1.2+, authenticated Claude Code CLI, authenticated Codex CLI",
+            "description": "XOXO compares headless Claude Code and Codex in isolated fixtures using deterministic assertions, normalized events, redacted artifacts, and optional blind judging.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Claude Code versus Codex comparisons",
+              "Isolated fixture copies",
+              "Deterministic output, file, tool, JSON, and subagent assertions",
+              "Replayable normalized event streams",
+              "Redacted evidence artifacts",
+              "Optional seeded blind judging",
+              "CLI, HTTP API, SSE, and MCP interfaces"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://xoxo.invalid/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is XOXO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "XOXO is a local evaluation harness that runs headless Claude Code and Codex against the same isolated fixtures, records normalized and redacted evidence, applies deterministic assertions, and can use a blind third model for semantic judging."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does XOXO compare Claude Code and Codex fairly?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Each candidate receives the same prompt and a fresh copy of the same fixture. XOXO records provider-neutral events and grades both candidates with the same deterministic assertions before any semantic judge is allowed to vote."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does XOXO support subagents?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Candidate configuration supports subagent model, effort, skills, and concurrency. Claude also supports per-agent max turns and spawn depth; XOXO rejects those controls for Codex strict-parity runs because Codex does not document equivalents."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does blind judging work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Blind judging runs only after both candidates pass deterministic gates. XOXO assigns seeded A/B labels, asks a third configured model to score the visible rubric, retries malformed judge output once by default, and maps the verdict back to X or Y."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is XOXO safe for untrusted code?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "XOXO uses native provider restrictions and isolated fixture copies, but untrusted fixtures should still run inside an external container or virtual machine. Authentication material is excluded from artifacts and configured secrets are redacted."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the evidence</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="XOXO home"><span>X</span>O<span>X</span>O</a>
+      <nav aria-label="Primary navigation">
+        <a href="#quick-start">Quick start</a>
+        <a href="#cli">CLI</a>
+        <a href="#api">API</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <span aria-hidden="true">◐</span>
+        <span class="theme-label">Night issue</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="issue-line">
+          <span>Evidence desk</span>
+          <span>Vol. 01</span>
+          <span>Upper East Side</span>
+        </div>
+        <p class="kicker">Gossip Girl here, your one and only source into the scandalous lives of Manhattan’s coding elite.</p>
+        <h1 id="hero-title">Set the record <em>straight.</em></h1>
+        <p class="hero-deck">Spotted on the Upper East Side: two major players competing for the crown, and only one gets to sit on the steps of the Met. Who’s pulling the strings, and who’s getting exposed? Let’s find out.</p>
+
+        <div class="match-card" aria-label="Claude Code versus Codex">
+          <article class="candidate candidate-x">
+            <span class="candidate-mark">X</span>
+            <div>
+              <p>Candidate one</p>
+              <h2>Claude Code</h2>
+              <span>Headless · restricted · stream JSON</span>
+            </div>
+          </article>
+          <div class="versus" aria-hidden="true">VS</div>
+          <article class="candidate candidate-y">
+            <span class="candidate-mark">Y</span>
+            <div>
+              <p>Candidate two</p>
+              <h2>Codex</h2>
+              <span>Ephemeral · JSONL · isolated config</span>
+            </div>
+          </article>
+        </div>
+
+        <a class="primary-cta" href="#quick-start">Start the comparison <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="answer-section ruled" aria-labelledby="what-is-xoxo">
+        <div class="section-label">The tip</div>
+        <div class="answer-copy">
+          <h2 id="what-is-xoxo">What is XOXO?</h2>
+          <p class="direct-answer">XOXO is a local evaluation harness that gives headless Claude Code and Codex the same task, keeps every receipt, and determines which candidate actually earned the crown.</p>
+          <p>Spotted: XOXO, the ultimate playground where headless Claude Code and Codex go head-to-head. We put every little candidate through a fresh, isolated fixture, keep receipts with normalized events and redacted secrets, run ruthless assertions, and—when things get really juicy—call in a blind third model to judge their every move. Because around here, darling, reputation is everything.</p>
+        </div>
+        <dl class="receipt-list">
+          <div><dt>01</dt><dd>Fresh fixture for every attempt</dd></div>
+          <div><dt>02</dt><dd>Provider-neutral event receipts</dd></div>
+          <div><dt>03</dt><dd>Deterministic gates before vibes</dd></div>
+          <div><dt>04</dt><dd>Blind A/B judging when needed</dd></div>
+        </dl>
+      </section>
+
+      <section class="quick-start" id="quick-start" aria-labelledby="quick-start-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Quick start</p>
+            <h2 id="quick-start-title">You can't sit with us—yet.</h2>
+          </div>
+          <p>You need Bun 1.2+ and authenticated <code>claude</code> and <code>codex</code> CLIs sitting pretty on your <code>PATH</code>.</p>
+        </div>
+        <div class="code-window">
+          <div class="code-bar"><span>Terminal / the invitation</span><button class="copy-button" type="button" data-copy-target="quick-code">Copy</button></div>
+          <pre id="quick-code"><code>bun install
+bun run xoxo init
+bun run xoxo doctor
+bun run xoxo compare examples/smoke.yaml \
+  --x claude:claude-sonnet-4-6 --x-effort high \
+  --y codex:gpt-5.6-sol --y-effort high
+bun run xoxo dev</code></pre>
+        </div>
+        <p class="note">Sneak a peek at <a href="http://127.0.0.1:5173">127.0.0.1:5173</a> after running <code>dev</code>. The server stays on loopback by default—we do love our privacy.</p>
+      </section>
+
+      <section class="interface-section ruled" id="cli" aria-labelledby="cli-title">
+        <div class="section-label">The guest list</div>
+        <div class="interface-copy">
+          <p class="eyebrow">CLI</p>
+          <h2 id="cli-title">Every command has a story.</h2>
+          <p>The strict dress code is <code>claude:&lt;model&gt;</code> or <code>codex:&lt;model&gt;</code>. Max turns and spawn depth are exclusive privileges for Claude; XOXO rejects them for Codex strict-parity runs.</p>
+        </div>
+        <div class="command-list" role="list" aria-label="XOXO commands">
+          <div role="listitem"><code>xoxo init</code><span>Create the local dossier</span></div>
+          <div role="listitem"><code>xoxo doctor</code><span>Check who's actually ready</span></div>
+          <div role="listitem"><code>xoxo compare</code><span>Start the X versus Y scandal</span></div>
+          <div role="listitem"><code>xoxo show</code><span>Inspect every receipt</span></div>
+          <div role="listitem"><code>xoxo cancel</code><span>Stop a live run</span></div>
+          <div role="listitem"><code>xoxo export</code><span>Print the final issue</span></div>
+          <div role="listitem"><code>xoxo mcp</code><span>Whisper over pristine stdio</span></div>
+          <div role="listitem"><code>xoxo setup agents</code><span>Invite skills and MCP</span></div>
+        </div>
+        <div class="flag-ticker" aria-label="Supported comparison flags">
+          <span>--x-effort</span><span>--y-effort</span><span>--judge</span><span>--judge-retries</span><span>--seed</span><span>--trials</span><span>--timeout</span><span>--case</span><span>--tag</span><span>--x-skill</span><span>--x-agent-model</span><span>--x-agent-spawn-depth</span>
+        </div>
+      </section>
+
+      <section class="api-section" id="api" aria-labelledby="api-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">HTTP API</p>
+            <h2 id="api-title">The server loves to share.</h2>
+          </div>
+          <p>Our Elysia server serves the latest gossip over loopback, including replayable SSE drama for every run.</p>
+        </div>
+        <div class="endpoint-grid">
+          <article><span class="method get">GET</span><code>/healthz</code><p>Is the desk awake?</p></article>
+          <article><span class="method get">GET</span><code>/v1/capabilities</code><p>Who's on the guest list?</p></article>
+          <article><span class="method post">POST</span><code>/v1/runs</code><p>Start a new rivalry.</p></article>
+          <article><span class="method get">GET</span><code>/v1/runs/:id</code><p>Read the latest status.</p></article>
+          <article><span class="method live">SSE</span><code>/v1/runs/:id/events</code><p>Replay every receipt.</p></article>
+          <article><span class="method post">POST</span><code>/v1/runs/:id/export</code><p>Publish the final issue.</p></article>
+        </div>
+      </section>
+
+      <section class="mcp-section ruled" aria-labelledby="mcp-title">
+        <div class="section-label">The inner circle</div>
+        <div>
+          <p class="eyebrow">MCP and skills</p>
+          <h2 id="mcp-title">Protocol secrets. Pristine stdout.</h2>
+          <p><code>xoxo mcp</code> whispers over stdio and keeps stdout completely pristine. It offers <code>xoxo_list_suites</code>, <code>xoxo_get_case</code>, <code>xoxo_start_compare</code>, <code>xoxo_get_run</code>, <code>xoxo_cancel_run</code>, and <code>xoxo_export_run</code>.</p>
+          <p>Run <code>xoxo setup agents</code> to preview who's getting invited. Add <code>--apply</code> if you're bold enough to write directly to <code>.mcp.json</code> and <code>.xoxo/skills/</code>.</p>
+        </div>
+        <div class="skill-stack" aria-label="Bundled XOXO skills">
+          <span>01 / xoxo-author</span>
+          <span>02 / xoxo-compare</span>
+          <span>03 / xoxo-triage</span>
+        </div>
+      </section>
+
+      <section class="faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Answer desk</p>
+            <h2 id="faq-title">Questions everyone is whispering.</h2>
+          </div>
+          <p>Clear answers for humans, search engines, and the machines reading over their shoulders.</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>What is XOXO?</summary>
+            <p>XOXO is a local evaluation harness that runs headless Claude Code and Codex against the same isolated fixtures, records normalized and redacted evidence, applies deterministic assertions, and can use a blind third model for semantic judging.</p>
+          </details>
+          <details>
+            <summary>How does XOXO compare Claude Code and Codex fairly?</summary>
+            <p>Each candidate receives the same prompt and a fresh copy of the same fixture. XOXO grades both with the same deterministic assertions before any semantic judge is allowed to vote.</p>
+          </details>
+          <details>
+            <summary>Does XOXO support subagents?</summary>
+            <p>Yes. Configure subagent model, effort, skills, and concurrency. Claude also supports per-agent max turns and spawn depth; XOXO rejects those controls for Codex because Codex does not document equivalents.</p>
+          </details>
+          <details>
+            <summary>How does blind judging work?</summary>
+            <p>Blind judging runs only after both candidates pass deterministic gates. XOXO assigns seeded A/B labels, asks a third model to apply the visible rubric, and maps the verdict back to X or Y.</p>
+          </details>
+          <details>
+            <summary>Is XOXO safe for untrusted code?</summary>
+            <p>XOXO uses native provider restrictions and isolated fixture copies, but toxic code belongs in an external container or VM. Authentication material stays out of reports and configured secrets are redacted.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="security-section" aria-labelledby="security-title">
+        <div>
+          <p class="eyebrow">Security</p>
+          <h2 id="security-title">Dirty laundry stays hidden.</h2>
+        </div>
+        <p>Runs operate inside native provider restrictions with pristine fixture copies—so if your code is toxic, run it in an external container or VM. XOXO never leaks authentication secrets into reports, refuses sketchy shell command strings from suite data, and redacts your dirty little secrets before anyone else can catch a glimpse.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wordmark footer-mark"><span>X</span>O<span>X</span>O</div>
+      <p>You know you love me,<br /><strong>XOXO</strong></p>
+      <div class="machine-links">
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/sitemap.xml">sitemap.xml</a>
+        <a href="/robots.txt">robots.txt</a>
+      </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+  </body>
+</html>
