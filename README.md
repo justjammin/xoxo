@@ -2,7 +2,7 @@ Gossip Girl here, your one and only source into the scandalous lives of Manhatta
 
 # XOXO
 
-Spotted: XOXO, the ultimate playground where headless Claude Code and Codex go head-to-head. We put every little candidate through a fresh, isolated fixture, keep receipts with normalized events and redacted secrets, run ruthless assertions, and—when things get really juicy—call in a blind third model to judge their every move. Because around here, darling, reputation is everything.
+Spotted: XOXO, the ultimate playground where any two models running through headless Claude Code or Codex go head-to-head. Compare two Claude Code candidates, two Codex candidates, or one of each. We put every little candidate through a fresh, isolated fixture, keep receipts with normalized events and redacted secrets, run ruthless assertions, and—when things get really juicy—call in a blind third model to judge their every move. Because around here, darling, reputation is everything.
 
 ## Quick start
 
@@ -34,7 +34,7 @@ xoxo mcp                          run the stdout-pure MCP stdio server
 xoxo setup agents --target both   print setup changes (add --apply to write)
 ```
 
-The strict dress code is `claude:<model>` or `codex:<model>`. Want to spice things up? Throw in `--x-effort`, `--y-effort`, `--judge`, `--judge-retries`, `--seed`, `--trials`, `--timeout`, `--case`, `--tag`, `--x-skill`, `--y-skill`, `--x-agent-model`, `--x-agent-effort`, `--x-agent-max-turns`, `--x-agent-concurrency`, and `--x-agent-spawn-depth` (repeat with `y` for your other favorite). Just remember: max turns and spawn depth are exclusive privileges for Claude. XOXO doesn't do double standards when Codex demands strict parity.
+Each candidate independently wears `claude:<model>` or `codex:<model>`, so same-framework and cross-framework matchups are both welcome. Want to spice things up? Throw in `--x-effort`, `--y-effort`, `--judge`, `--judge-retries`, `--seed`, `--trials`, `--timeout`, `--case`, `--tag`, `--x-skill`, `--y-skill`, `--x-agent-model`, `--x-agent-effort`, `--x-agent-max-turns`, `--x-agent-concurrency`, and `--x-agent-spawn-depth` (repeat with `y` for your other favorite). Just remember: max turns and spawn depth are exclusive privileges for Claude. XOXO doesn't do double standards when Codex demands strict parity.
 
 ## HTTP API
 

@@ -67,13 +67,13 @@ function sitemap(origin: string) {
 function llms(origin: string) {
   return `# XOXO
 
-> XOXO is a local evaluation harness for comparing headless Claude Code and Codex in equivalent isolated fixtures with deterministic assertions, normalized events, redacted evidence, and optional blind judging.
+> XOXO is a local evaluation harness for comparing any two models running on headless Claude Code or Codex in equivalent isolated fixtures with deterministic assertions, normalized events, redacted evidence, and optional blind judging.
 
 XOXO is developer tooling built with Bun and Elysia. It exposes a CLI, loopback HTTP API, replayable SSE, and a stdio MCP server. Runs are persisted in SQLite and export portable JSON and HTML reports.
 
 ## Core facts
 
-- Candidates use the form \`claude:<model>\` or \`codex:<model>\`.
+- Each candidate independently uses the form \`claude:<model>\` or \`codex:<model>\`, enabling two Claude Code candidates, two Codex candidates, or one of each.
 - Both candidates receive the same prompt and fresh fixture copy.
 - Deterministic checks cover output, files, tools, JSON, and subagent spawn counts.
 - A blind third model judges semantic rubrics only when both candidates pass deterministic gates.
@@ -89,7 +89,7 @@ XOXO is developer tooling built with Bun and Elysia. It exposes a CLI, loopback 
 
 ## Canonical answer
 
-XOXO compares headless Claude Code and Codex by running the same task in separate copies of the same fixture, normalizing provider events, grading deterministic evidence first, and optionally using a seeded blind judge for semantic criteria.
+XOXO compares any two models running on Claude Code or Codex—same framework or cross-framework—by running the same task in separate copies of the same fixture, normalizing provider events, grading deterministic evidence first, and optionally using a seeded blind judge for semantic criteria.
 `;
 }
 

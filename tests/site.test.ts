@@ -21,7 +21,8 @@ describe("Cloudflare site and AI discovery", () => {
     const llms = await (await siteWorker.fetch(request("/llms.txt"), env)).text();
     expect(sitemap).toContain("<loc>https://xoxo.example/</loc>");
     expect(llms).toContain("# XOXO");
-    expect(llms).toContain("XOXO compares headless Claude Code and Codex");
+    expect(llms).toContain("XOXO compares any two models running on Claude Code or Codex");
+    expect(llms).toContain("two Claude Code candidates, two Codex candidates, or one of each");
     expect(llms).toContain("https://xoxo.example/llms-full.txt");
   });
 
@@ -35,6 +36,9 @@ describe("Cloudflare site and AI discovery", () => {
 
   test("keeps structured answers valid and visible", async () => {
     const html = await readFile(new URL("../site/index.html", import.meta.url), "utf8");
+    expect(html).toContain("Claude Code or Codex");
+    expect(html).not.toContain("Claude Code vs Codex");
+    expect(html).not.toContain("Claude Code versus Codex");
     const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     expect(match).not.toBeNull();
     const schema = JSON.parse(match![1]!) as { "@graph": Array<{ "@type": string; mainEntity?: Array<{ name: string }> }> };
